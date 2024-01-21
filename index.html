@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Fuse Rating Calculator</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <script src="/scripts/main.js" type="module" defer></script>
+</head>
+
+<body>
+    <h1>Fuse Rating Calculator</h1>
+    <form id="calculator-form">
+        <label for="power">Power of Appliance in Watts</label>
+        <input type="number" name="power" id="power" value="1000"/>
+
+        <label for="csa">Cross Sectional Area</label>
+        <select name="csa" id="csa">
+            <option value="0.5" default>0.5mm²</option>
+            <option value="0.75">0.75mm²</option>
+            <option value="1.0">1.0mm²</option>
+            <option value="1.25">1.25mm²</option>
+            <option value="1.5">1.5mm²</option>
+        </select>
+
+        <label for="fuse">Current Fuse Size</label>
+        <select name="fuse" id="fuse">
+            <option value="3" default>3 Amps</option>
+            <option value="5">5 Amps</option>
+            <option value="10">10 Amps</option>
+            <option value="13">13 Amps</option>
+        </select>
+
+        <label for="plug">Plug Type</label>
+        <select name="plug" id="plug">
+            <option value="rewirable" default>Rewirable</option>
+            <option value="moulded">Moulded</option>
+        </select>
+
+        <button type="submit">Is this safe?</button>
+    </form>
+
+    <h1 id="outcome"></h1>
+</body>
+
+</html>
