@@ -31,17 +31,25 @@ function calculatorProcessData(event) {
         }
     );
 
-    if (fuse < maximumPotentialCurrentDraw) {
-        const warningMessage = `Fuse rating too low for device! Should at least be ${ roundedMaxCurrentDrawString }`
-        generateDisplayMessage(warningMessage)
-        return
-    }
+    let warningMessage = ""
 
+    if (fuse < maximumPotentialCurrentDraw) {
+        warningMessage += `
+        Fuse rating too low for device! 
+        Should be at least ${ roundedMaxCurrentDrawString }
+        `
+    }
 
     const fuseRatingOfCable = fuseRatingTable[csa][plug]
 
     if (fuse > fuseRatingOfCable) {
-        const warningMessage = `Fuse rating too high for the combination of flex/cable. Should at most be ${ fuseRatingOfCable }`
+        warningMessage += `
+        Fuse rating too high for the combination of flex/cable! 
+        Should at most be ${ fuseRatingOfCable }
+        `
+    }
+    
+    if (warningMessage !== "") {
         generateDisplayMessage(warningMessage)
         return
     }
