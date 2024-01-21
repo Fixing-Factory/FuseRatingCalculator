@@ -1,0 +1,41 @@
+@font-face {
+    font-family: Poppins;
+    src: url(/staic/fonts/Poppins-Medium.ttf);
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    color: white;
+    background-color: rgb(239, 120, 0);
+    display: block;
+    margin: 5vh
+}
+
+label {
+    display: inline;
+}
+
+input {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+select {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+button {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    padding: 2vh;
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+}
