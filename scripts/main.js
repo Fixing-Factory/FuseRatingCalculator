@@ -34,8 +34,8 @@ function calculatorProcessData(event) {
     let warningMessage = ""
 
     if (fuse < maximumPotentialCurrentDraw) {
-        warningMessage += `
-        Fuse rating too low for device! 
+        warningMessage += 
+        `Fuse rating too low for device! 
         Should be at least ${ roundedMaxCurrentDrawString }
         `
     }
@@ -43,8 +43,8 @@ function calculatorProcessData(event) {
     const fuseRatingOfCable = fuseRatingTable[csa][plug]
 
     if (fuse > fuseRatingOfCable) {
-        warningMessage += `
-        Fuse rating too high for the combination of flex/cable! 
+        warningMessage += 
+        `Fuse rating too high for the combination of flex/cable! 
         Should at most be ${ fuseRatingOfCable }
         `
     }
@@ -54,12 +54,13 @@ function calculatorProcessData(event) {
         return
     }
 
-    const evaluationMessage = `
-    No Concerns Flagged for this Combination 
+    const evaluationMessage = 
+    `No Concerns Flagged for this Combination 
     Max Amps of Device: ${ roundedMaxCurrentDrawString } 
     Fuse Rating of Cable & Plug: ${ fuseRatingOfCable }
     `
 
+    
     generateDisplayMessage(evaluationMessage)
 }
 
