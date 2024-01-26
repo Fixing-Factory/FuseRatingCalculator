@@ -15,6 +15,10 @@ h1, h2 {
     font-weight: 500;
 }
 
+.form-input-box {
+    padding-bottom: 1vh;
+}
+
 label {
     display: inline;
 }
@@ -35,4 +39,14 @@ button {
     padding: 2vh;
     display: block;
     font-family: "Poppins", sans-serif;
+}
+
+input[type="checkbox"] {
+    width: 4vh;
+    height: 4vh;
+    margin: 0;
+}
+
+.disabled {
+    display: none;
 }
