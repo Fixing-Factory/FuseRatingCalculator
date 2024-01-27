@@ -2,6 +2,7 @@ import { setupDynamicFormBehaviour } from "./dynamic_content/dynamic_form_conten
 import { calculateFuseRating } from "./calculators/cable_fuse_rating_calculator.js";
 import { calculateDeviceCurrentDraw } from "./calculators/device_current_draw_calculator.js";
 import { calculateResistanceOfCable } from "./calculators/cable_resistance_calculator.js";
+import { roundNumber as roundToDecimalPlaces } from "./formatters/number_rouder.js";
 
 const PROTECTIVE_EARTH_TEST_TOLERANCE = 0.1
 
@@ -26,13 +27,7 @@ function calculatorProcessData(event) {
 
   const currentDraw = calculateDeviceCurrentDraw(power, voltage)
   
-  const roundedCurrentDrawString = currentDraw.toLocaleString(
-    "en-GB",
-    {
-      maximumFractionDigits: 2,
-      minimumFractionDigits: 2
-    }
-  );
+  const roundedCurrentDrawString = roundToDecimalPlaces(currentDraw, 2)
 
   let warningMessage = ""
 
@@ -61,13 +56,7 @@ function calculatorProcessData(event) {
 
   const maxResistanceForProtectiveEarthTest = cableResistance + PROTECTIVE_EARTH_TEST_TOLERANCE
 
-  const roundedMaxResistance = maxResistanceForProtectiveEarthTest.toLocaleString(
-    "en-GB",
-    {
-      maximumFractionDigits: 3,
-      minimumFractionDigits: 3
-    }
-  );
+  const roundedMaxResistance = roundToDecimalPlaces(maxResistanceForProtectiveEarthTest, 3)
 
 
   const evaluationMessage =
