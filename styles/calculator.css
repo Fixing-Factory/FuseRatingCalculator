@@ -1,52 +1,52 @@
 @font-face {
-    font-family: Poppins;
-    src: url(../static/fonts/Poppins-Medium.ttf);
+  font-family: Poppins;
+  src: url(../static/fonts/Poppins-Medium.ttf);
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    color: white;
-    background-color: rgb(239, 120, 0);
-    display: block;
-    margin: 5vh
+  font-family: "Poppins", sans-serif;
+  color: white;
+  background-color: rgb(239, 120, 0);
+  display: block;
+  margin: 5vh
 }
 
 h1, h2 {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .form-input-box {
-    padding-bottom: 1vh;
+  padding-bottom: 1vh;
 }
 
 label {
-    display: inline;
+  display: inline;
 }
 
 input {
-    display: block;
-    font-family: "Poppins", sans-serif;
+  display: block;
+  font-family: "Poppins", sans-serif;
 }
 
 select {
-    display: block;
-    font-family: "Poppins", sans-serif;
+  display: block;
+  font-family: "Poppins", sans-serif;
 }
 
 button {
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-    padding: 2vh;
-    display: block;
-    font-family: "Poppins", sans-serif;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  padding: 2vh;
+  display: block;
+  font-family: "Poppins", sans-serif;
 }
 
 input[type="checkbox"] {
-    width: 4vh;
-    height: 4vh;
-    margin: 0;
+  width: 4vh;
+  height: 4vh;
+  margin: 0;
 }
 
 .disabled {
-    display: none;
+  display: none;
 }

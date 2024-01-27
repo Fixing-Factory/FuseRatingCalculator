@@ -2,75 +2,75 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Fuse Rating Calculator</title>
-    <link rel="icon" type="image/x-icon" href="./static/images/favicon.png">
-    <script src="./scripts/main.js" type="module" defer></script>
-    <link rel="stylesheet" href="./styles/calculator.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Fuse Rating Calculator</title>
+  <link rel="icon" type="image/x-icon" href="./static/images/favicon.png">
+  <script src="./scripts/main.js" type="module" defer></script>
+  <link rel="stylesheet" href="./styles/calculator.css">
 </head>
 
 <body>
-    <h1>Fuse Rating Calculator</h1>
-    <form id="calculator-form">
-        <div id="power-selection" class="form-input-box">
-            <label for="power">Power of Appliance in Watts</label>
-            <input type="number" name="power" id="power" value="1000" />
-        </div>
+  <h1>Fuse Rating Calculator</h1>
+  <form id="calculator-form">
+    <div id="power-selection" class="form-input-box">
+      <label for="power">Power of Appliance in Watts</label>
+      <input type="number" name="power" id="power" value="1000" />
+    </div>
 
-        <div id="voltage-selection" class="form-input-box">
-            <label for="voltage">Matching Voltage rating for Power</label>
-            <select name="voltage" id="voltage">
-                <option value="220">220V</option>
-                <option value="230" default>230V</option>
-                <option value="240">240V</option>
-            </select>
-        </div>
+    <div id="voltage-selection" class="form-input-box">
+      <label for="voltage">Matching Voltage rating for Power</label>
+      <select name="voltage" id="voltage">
+        <option value="220">220V</option>
+        <option value="230" default>230V</option>
+        <option value="240">240V</option>
+      </select>
+    </div>
 
-        <div id="csa-selection" class="form-input-box">
-            <label for="csa">Cross Sectional Area</label>
-            <select name="csa" id="csa">
-                <option value="0.5" default>0.5mm²</option>
-                <option value="0.75">0.75mm²</option>
-                <option value="1.0">1.0mm²</option>
-                <option value="1.25">1.25mm²</option>
-                <option value="1.5">1.5mm²</option>
-            </select>
-        </div>
+    <div id="csa-selection" class="form-input-box">
+      <label for="csa">Cross Sectional Area</label>
+      <select name="csa" id="csa">
+        <option value="0.5" default>0.5mm²</option>
+        <option value="0.75">0.75mm²</option>
+        <option value="1.0">1.0mm²</option>
+        <option value="1.25">1.25mm²</option>
+        <option value="1.5">1.5mm²</option>
+      </select>
+    </div>
 
-        <div id="fuse-selection" class="form-input-box">
-            <label for="fuse">Current Fuse Size</label>
-            <select name="fuse" id="fuse">
-                <option value="3" default>3 Amps</option>
-                <option value="5">5 Amps</option>
-                <option value="7">7 Amps</option>
-                <option value="10">10 Amps</option>
-                <option value="13">13 Amps</option>
-            </select>
-        </div>
+    <div id="fuse-selection" class="form-input-box">
+      <label for="fuse">Current Fuse Size</label>
+      <select name="fuse" id="fuse">
+        <option value="3" default>3 Amps</option>
+        <option value="5">5 Amps</option>
+        <option value="7">7 Amps</option>
+        <option value="10">10 Amps</option>
+        <option value="13">13 Amps</option>
+      </select>
+    </div>
 
-        <div id="plug-selection" class="form-input-box">
-            <label for="plug">Plug Type</label>
-            <select name="plug" id="plug">
-                <option value="rewirable" default>Rewirable</option>
-                <option value="moulded">Moulded</option>
-            </select>
-        </div>
+    <div id="plug-selection" class="form-input-box">
+      <label for="plug">Plug Type</label>
+      <select name="plug" id="plug">
+        <option value="rewirable" default>Rewirable</option>
+        <option value="moulded">Moulded</option>
+      </select>
+    </div>
 
-        <div id="inrush-selection" class="form-input-box">
-            <label for="inrush">Do we expect this appliance to have a High Inrush Current?</label>
-            <input type="checkbox" name="inrush" id="inrush" />
-        </div>
+    <div id="inrush-selection" class="form-input-box">
+      <label for="inrush">Do we expect this appliance to have a High Inrush Current?</label>
+      <input type="checkbox" name="inrush" id="inrush" />
+    </div>
 
-        <div id="short-lead-selection" class="form-input-box disabled">
-            <label for="short-lead">Short Lead (less than 2m in length)?</label>
-            <input type="checkbox" name="short-lead" id="short-lead" />
-        </div>
+    <div id="short-lead-selection" class="form-input-box disabled">
+      <label for="short-lead">Short Lead (less than 2m in length)?</label>
+      <input type="checkbox" name="short-lead" id="short-lead" />
+    </div>
 
-        <button type="submit">Is this safe?</button>
-    </form>
+    <button type="submit">Is this safe?</button>
+  </form>
 
-    <h2 id="outcome"></h2>
+  <h2 id="outcome"></h2>
 </body>
 
 </html>
