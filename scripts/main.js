@@ -1,5 +1,9 @@
 import { setupDynamicFormBehaviour } from "./dynamic_content/dynamic_form_content.js";
-import { fuseRatingTable } from "./fuse_rating_table.js"
+import { calculateFuseRating } from "./calculators/cable_fuse_rating_calculator.js";
+import { calculateDeviceCurrentDraw } from "./calculators/device_current_draw_calculator.js";
+import { calculateResistanceOfCable } from "./calculators/cable_resistance_calculator.js";
+
+const PROTECTIVE_EARTH_TEST_TOLERANCE = 0.1
 
 function calculatorFormSubmit(event) {
   // Implicitly raises a "formdata" event (so we can actually read the data and use it!)
@@ -15,13 +19,13 @@ function calculatorProcessData(event) {
   const power = data.get("power")
   const voltage = parseInt(data.get("voltage"))
   const inrush = data.get("inrush")
-  const short_lead = data.get("short-lead")
   const csa = data.get("csa")
   const fuse = parseInt(data.get("fuse"))
-  const plug = data.get("plug")
+  const plugType = data.get("plug-type")
+  const cableLength = parseFloat(data.get("cable-length"))
 
-
-  const currentDraw = power / voltage
+  const currentDraw = calculateDeviceCurrentDraw(power, voltage)
+  
   const roundedCurrentDrawString = currentDraw.toLocaleString(
     "en-GB",
     {
@@ -39,15 +43,7 @@ function calculatorProcessData(event) {
         `
   }
 
-  let fuseRatingOfCable = fuseRatingTable[csa]["standard"][plug]
-
-  if (csa === "0.5" && inrush) {
-    fuseRatingOfCable = fuseRatingTable[csa]["inrush"][plug]
-  }
-
-  if (csa === "0.75" && short_lead) {
-    fuseRatingOfCable = fuseRatingTable[csa]["short_lead"][plug]
-  }
+  const fuseRatingOfCable = calculateFuseRating(csa, plugType, inrush, cableLength)
 
   if (fuse > fuseRatingOfCable) {
     warningMessage +=
@@ -61,12 +57,25 @@ function calculatorProcessData(event) {
     return
   }
 
+  const cableResistance = calculateResistanceOfCable(csa, cableLength)
+
+  const maxResistanceForProtectiveEarthTest = cableResistance + PROTECTIVE_EARTH_TEST_TOLERANCE
+
+  const roundedMaxResistance = maxResistanceForProtectiveEarthTest.toLocaleString(
+    "en-GB",
+    {
+      maximumFractionDigits: 3,
+      minimumFractionDigits: 3
+    }
+  );
+
+
   const evaluationMessage =
     `No Concerns Flagged for this Combination 
     Max Amps of Device: ${roundedCurrentDrawString} 
     Fuse Rating of Cable & Plug: ${fuseRatingOfCable}
+    Maximum Acceptable Earth Resistance: ${roundedMaxResistance }
     `
-
 
   generateDisplayMessage(evaluationMessage)
 }
