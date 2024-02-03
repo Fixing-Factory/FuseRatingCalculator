@@ -72,18 +72,8 @@ function calculatorProcessData(event) {
   generateDisplayMessage(evaluationMessage)
 }
 
-function generateDisplayMessage(message) {
-  const outputElement = document.getElementById('outcome')
-
-  outputElement.innerText = message
-}
-
 function main() {
   formContentManager.initialiseForm()
-
-  const calculatorForm = document.getElementById('calculator-form')
-  calculatorForm.addEventListener('submit', calculatorFormSubmit)
-  calculatorForm.addEventListener('formdata', calculatorProcessData)
 }
 
 main()

@@ -54,9 +54,3 @@ input[type="number"] {
 .disabled {
   display: none;
 }
-
-fieldset {
-  margin: 0;
-  border-width: 0;
-  padding: 0;
-}
