@@ -1,23 +1,63 @@
-export function setupDynamicFormBehaviour() {
-  const csaInput = document.getElementById('csa')
-  const inrushCurrentFormBox = document.getElementById('inrush-selection')
+export class CalculatorFormContentManager {
+  constructor() {
+    this.csaInput = document.getElementById('csa')
+    this.inrushCurrentFormBox = document.getElementById('inrush-selection')
+    this.formFieldset = document.getElementById('calculator-form-fields')
+    this.formSubmitButton = document.getElementById('calculator-form-submit')
+    this.resetButton = document.getElementById('calculator-form-reset')
+    this.output = document.getElementById('outcome')
+  }
 
-  function onCSAChange() {
-    switch (csaInput.value) {
+  initialiseForm() {
+    this.csaInput.addEventListener("change", () => { this.onCSAChange() })
+    this.resetButton.addEventListener("click", () => { this.onReset() })
+  }
+
+  onCSAChange() {
+    switch (this.csaInput.value) {
       case "0.5": {
-        inrushCurrentFormBox.classList.remove('disabled')
+        this.inrushCurrentFormBox.classList.remove('disabled')
         break
       }
       case "0.75": {
-        inrushCurrentFormBox.classList.add('disabled')
+        this.inrushCurrentFormBox.classList.add('disabled')
         break
       }
       default: {
-        inrushCurrentFormBox.classList.add('disabled')
+        this.inrushCurrentFormBox.classList.add('disabled')
         break
       }
     }
   }
 
-  csaInput.addEventListener("change", onCSAChange)
+  onSubmit() {
+    this.disableForm()
+    this.displayReset()
+  }
+
+  onReset() {
+    this.enableForm()
+    this.hideReset()
+    this.clearOutcome()
+  }
+
+  clearOutcome() {
+    this.output.innerText = ""
+  }
+
+  disableForm() {
+    this.formFieldset.setAttribute("disabled", true)
+  }
+
+  enableForm() {
+    this.formFieldset.removeAttribute("disabled")
+  }
+
+  displayReset() {
+    this.resetButton.classList.remove('disabled')
+  }
+
+  hideReset() {
+    this.resetButton.classList.add('disabled')
+  }
 }

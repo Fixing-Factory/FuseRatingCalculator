@@ -1,14 +1,17 @@
-import { setupDynamicFormBehaviour } from "./dynamic_content/dynamic_form_content.js";
+import { CalculatorFormContentManager} from "./dynamic_content/dynamic_form_content.js";
 import { calculateFuseRating } from "./calculators/cable_fuse_rating_calculator.js";
 import { calculateDeviceCurrentDraw } from "./calculators/device_current_draw_calculator.js";
 import { calculateResistanceOfCable } from "./calculators/cable_resistance_calculator.js";
 import { roundNumber as roundToDecimalPlaces } from "./formatters/number_rouder.js";
 
 const PROTECTIVE_EARTH_TEST_TOLERANCE = 0.1
+const formContentManager = new CalculatorFormContentManager()
 
 function calculatorFormSubmit(event) {
   // Implicitly raises a "formdata" event (so we can actually read the data and use it!)
   new FormData(event.target);
+
+  formContentManager.onSubmit()
 
   // Suppresses the default form behaviour of directing to a new page on page submit
   event.preventDefault()
@@ -76,10 +79,11 @@ function generateDisplayMessage(message) {
 }
 
 function main() {
+  formContentManager.initialiseForm()
+
   const calculatorForm = document.getElementById('calculator-form')
   calculatorForm.addEventListener('submit', calculatorFormSubmit)
   calculatorForm.addEventListener('formdata', calculatorProcessData)
-  setupDynamicFormBehaviour()
 }
 
 main()
