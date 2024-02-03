@@ -2,19 +2,24 @@ import { calculateFuseRating } from "./calculators/cable_fuse_rating_calculator.
 import { calculateDeviceCurrentDraw } from "./calculators/device_current_draw_calculator.js";
 import { calculateResistanceOfCable } from "./calculators/cable_resistance_calculator.js";
 import { roundNumber as roundToDecimalPlaces } from "./formatters/number_rouder.js";
+import { InputResultsContentManager } from "./dynamic_content/input_results_content.js";
 
 const PROTECTIVE_EARTH_TEST_TOLERANCE_OHMS = 0.1
 
 function calculatorProcessData() {
-  const data = event.formData;
+  const queryParams = new URLSearchParams(window.location.search);
+  queryParams.get('myParam');
 
-  const power = data.get("power")
-  const voltage = parseInt(data.get("voltage"))
-  const inrush = data.get("inrush")
-  const csa = data.get("csa")
-  const fuse = parseInt(data.get("fuse"))
-  const plugType = data.get("plug-type")
-  const cableLength = parseFloat(data.get("cable-length"))
+  const power = queryParams.get('power')
+  const voltage = parseInt(queryParams.get('voltage'))
+  const inrush = queryParams.get('inrush')
+  const csa = queryParams.get('csa')
+  const fuse = parseInt(queryParams.get('fuse'))
+  const plugType = queryParams.get('plug-type')
+  const cableLength = parseFloat(queryParams.get('cable-length'))
+
+  const inputResultsManager = new InputResultsContentManager()
+  inputResultsManager.initialiseForm(power, voltage, csa, inrush, fuse, plugType, cableLength)
 
   const currentDraw = calculateDeviceCurrentDraw(power, voltage)
   
@@ -56,4 +61,6 @@ function main() {
   calculatorProcessData()
 }
 
-main()
+window.addEventListener("load", () => main())
+
+

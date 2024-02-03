@@ -1,4 +1,4 @@
-import { CalculatorFormContentManager} from "./dynamic_content/dynamic_form_content.js";
+import { CalculatorFormContentManager} from "./dynamic_content/input_form_content.js";
 import { calculateFuseRating } from "./calculators/cable_fuse_rating_calculator.js";
 import { calculateDeviceCurrentDraw } from "./calculators/device_current_draw_calculator.js";
 import { calculateResistanceOfCable } from "./calculators/cable_resistance_calculator.js";
