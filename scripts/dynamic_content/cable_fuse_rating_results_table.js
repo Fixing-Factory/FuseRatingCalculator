@@ -1,3 +1,5 @@
+import { capitaliseFirstLetter } from "../formatters/word_formatter.js"
+
 export class CableFuseRatingResultsTableManager {
   constructor() {
     this.csaSelection = document.getElementById('csa-selection-cable-fuse-rating')
@@ -8,7 +10,7 @@ export class CableFuseRatingResultsTableManager {
 
   populateTable(csa, inrush, plugSelection, cableFuseRating, fuseSelection) {
     this.csaSelection.innerHTML = this.generateCSAText(csa, inrush)
-    this.plugSelection.innerHTML = `${plugSelection}`
+    this.plugSelection.innerHTML = capitaliseFirstLetter(plugSelection)
     this.cableFuseRating.innerHTML = `${cableFuseRating}A`
     this.fuseSelection.innerHTML = `${fuseSelection}A`
 

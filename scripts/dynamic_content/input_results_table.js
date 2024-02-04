@@ -1,3 +1,5 @@
+import { capitaliseFirstLetter as capitaliseFirstLetter } from "../formatters/word_formatter.js"
+
 export class InputResultsTableManager {
   constructor() {
     this.powerInput = document.getElementById('power-selection')
@@ -13,7 +15,7 @@ export class InputResultsTableManager {
     this.voltageInput.innerHTML = `${voltage}V`
     this.csaInput.innerHTML = this.generateCSAText(csa, inrush)
     this.fuseInput.innerHTML = `${fuse}A`
-    this.plugTypeInput.innerHTML = plugType
+    this.plugTypeInput.innerHTML = capitaliseFirstLetter(plugType)
     this.cableLengthInput.innerHTML = `${cableLength}m`
   }
 

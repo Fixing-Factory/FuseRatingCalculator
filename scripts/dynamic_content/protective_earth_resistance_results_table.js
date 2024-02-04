@@ -5,7 +5,6 @@ const PROTECTIVE_EARTH_TEST_TOLERANCE_OHMS = 0.1
 
 export class ProtectiveEarthResistanceTableManager {
   constructor() {
-    this.csaSelection = document.getElementById('csa-selection-protective-earth-resistance')
     this.csaResistance = document.getElementById('csa-resistance')
     this.cableLengthSelection = document.getElementById('cable-length-selction-protective-earth-resistance')
     this.cableResistance = document.getElementById('cable-resistance')
@@ -13,10 +12,8 @@ export class ProtectiveEarthResistanceTableManager {
   }
 
   populateTable(csa, cableLength, cableResistance) {
-    this.csaSelection.innerHTML = `${csa}mm²`
-    
-    // Because of binary representation this can actually introduce rounding errors!
     const csaResistance = cableResistanceTable[csa] * 0.001
+    // Because of binary representation the line above can actually introduce rounding errors!
     const roundedcsaResistance = roundToDecimalPlaces(csaResistance, 3)
     this.csaResistance.innerHTML = `${roundedcsaResistance}Ωm⁻¹`
     
