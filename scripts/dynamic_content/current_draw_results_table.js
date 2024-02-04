@@ -12,10 +12,22 @@ export class CurrentDrawResultsTableManager {
     const roundedCurrentDrawString = roundToDecimalPlaces(currentDraw, 2)
     this.currentDraw.innerHTML = `${roundedCurrentDrawString}A`
     this.fuseSelection.innerHTML = `${fuseSelection}A`
-    this.minimumFuseCurrentDraw.innerHTML = `${this.pickMinViableFuse(currentDraw)}A`
+    this.minimumFuseCurrentDraw.innerHTML = this.pickMinViableFuse(currentDraw)
+
+    if (currentDraw > fuseSelection) {
+      this.minimumFuseCurrentDraw.classList.add("highlight")
+      this.fuseSelection.classList.add("highlight")
+      this.fuseSelection.innerHTML += "!!!"
+    }
   }
 
   pickMinViableFuse(currentDraw) {
-    return fuseList.find((fuse) => currentDraw < fuse)
+    const targetFuse = fuseList.find((fuse) => currentDraw < fuse)
+
+    if (targetFuse) {
+      return `${targetFuse}A`
+    } else {
+      return "Too High for a Fuse!"
+    }
   }
 }

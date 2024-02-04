@@ -11,6 +11,12 @@ export class CableFuseRatingResultsTableManager {
     this.plugSelection.innerHTML = `${plugSelection}`
     this.cableFuseRating.innerHTML = `${cableFuseRating}A`
     this.fuseSelection.innerHTML = `${fuseSelection}A`
+
+    if (cableFuseRating < fuseSelection) {
+      this.cableFuseRating.classList.add("highlight")
+      this.fuseSelection.classList.add("highlight")
+      this.fuseSelection.innerHTML += "!!!"
+    }
   }
 
   generateCSAText(csa, inrush) {

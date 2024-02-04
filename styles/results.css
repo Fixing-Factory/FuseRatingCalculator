@@ -22,6 +22,12 @@ td, th {
   font-weight: 500;
 }
 
+.highlight {
+  font-weight: 700;
+  font-size: 2rem;
+  color: lightyellow;
+}
+
 button {
   margin-top: 4vh;
   margin-bottom: 4vh;
