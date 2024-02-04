@@ -27,12 +27,12 @@ td, th {
   padding-left: 0;
   padding-right: 1vw;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .highlight {
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: lightyellow;
 }
 
