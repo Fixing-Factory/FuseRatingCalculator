@@ -39,6 +39,7 @@ button {
   padding: 2vh;
   display: block;
   font-family: "Poppins", sans-serif;
+  font-size: 1rem;
 }
 
 input[type="checkbox"] {

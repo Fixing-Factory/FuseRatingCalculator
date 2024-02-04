@@ -1,4 +1,4 @@
-export class InputResultsContentManager {
+export class InputResultsTableManager {
   constructor() {
     this.powerInput = document.getElementById('power-selection')
     this.voltageInput = document.getElementById('voltage-selection')
@@ -8,7 +8,7 @@ export class InputResultsContentManager {
     this.cableLengthInput = document.getElementById('cable-length-selection')
   }
 
-  initialiseForm(power, voltage, csa, inrush, fuse, plugType, cableLength) {
+  populateTable(power, voltage, csa, inrush, fuse, plugType, cableLength) {
     this.powerInput.innerHTML = `${power}W`
     this.voltageInput.innerHTML = `${voltage}V`
     this.csaInput.innerHTML = this.generateCSAText(csa, inrush)
