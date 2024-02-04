@@ -36,6 +36,9 @@ function calculatorProcessData() {
 
 function main() {
   calculatorProcessData()
+
+  // Hide the new page (so that refreshes reload the homepage)
+  window.history.replaceState(null, "", "../")
 }
 
 window.addEventListener("load", () => main())
