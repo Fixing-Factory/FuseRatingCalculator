@@ -7,77 +7,87 @@
   <title>Fuse Rating Calculator</title>
   <link rel="icon" type="image/x-icon" href="./static/images/favicon.png">
   <script src="./scripts/results.js" type="module" defer></script>
+  <link rel="stylesheet" href="./styles/common.css">
   <link rel="stylesheet" href="./styles/results.css">
 </head>
 
 <body>
-  <h1>Results</h1>
+<a href="https://www.fixingfactory.org/">
+  <img src="./static/images/fixingfactorylogo.png" alt="Fixing Factory Homepage" id="homepage-logo">
+</a>
+  <section class="results-table-section">
+    <h2>Your Input</h2>
+    <table id="selected-inputs">
+      <thead>
+        <th>Power</th>
+        <th>Voltage</th>
+        <th>Cable CSA</th>
+        <th>Fuse</th>
+        <th>Plug Type</th>
+        <th>Cable Length</th>
+      </thead>
+      <tbody>
+        <td id="power-selection"></td>
+        <td id="voltage-selection"></td>
+        <td id="csa-selection"></td>
+        <td id="fuse-selection"></td>
+        <td id="plug-type-selection"></td>
+        <td id="cable-length-selection"></td>
+      </tbody>
+    </table>
+  </section>
 
-  <h2>Your Input</h2>
-  <table id="selected-inputs">
-    <thead>
-      <th>Power</th>
-      <th>Voltage</th>
-      <th>Cable CSA</th>
-      <th>Fuse</th>
-      <th>Plug Type</th>
-      <th>Cable Length</th>
-    </thead>
-    <tbody>
-      <td id="power-selection"></td>
-      <td id="voltage-selection"></td>
-      <td id="csa-selection"></td>
-      <td id="fuse-selection"></td>
-      <td id="plug-type-selection"></td>
-      <td id="cable-length-selection"></td>
-    </tbody>
-  </table>
+  <section class="results-table-section">
+    <h2>Fuse Rating of Cable & Plug</h2>
+    <table id="cable-fuse-rating-results">
+      <thead>
+        <th>Cable CSA</th>
+        <th>Plug Type</th>
+        <th>Max for Cable & Plug</th>
+        <th>Current Fuse</th>
+      </thead>
+      <tbody>
+        <td id="csa-selection-cable-fuse-rating"></td>
+        <td id="plug-selection-cable-fuse-rating"></td>
+        <td id="cable-fuse-rating"></td>
+        <td id="fuse-selection-cable-fuse-rating"></td>
+      </tbody>
+    </table>
+  </section>
 
-  <h2>Current Drawn By Device</h2>
-  <table id="current-draw-results">
-    <thead>
-      <th>Device Current Draw</th>
-      <th>Min Fuse Needed for Device</th>
-      <th>Current Fuse</th>
-    </thead>
-    <tbody>
-      <td id="current-draw"></td>
-      <td id="minimum-fuse-current-draw"></td>
-      <td id="fuse-selection-current-draw"></td>
-    </tbody>
-  </table>
+  <section class="results-table-section">
+    <h2>Current Drawn By Device</h2>
+    <table id="current-draw-results">
+      <thead>
+        <th>Device Current Draw</th>
+        <th>Min Fuse Needed for Device</th>
+        <th>Current Fuse</th>
+      </thead>
+      <tbody>
+        <td id="current-draw"></td>
+        <td id="minimum-fuse-current-draw"></td>
+        <td id="fuse-selection-current-draw"></td>
+      </tbody>
+    </table>
+  </section>
 
-  <h2>Fuse Rating of Cable & Plug</h2>
-  <table id="cable-fuse-rating-results">
-    <thead>
-      <th>Cable CSA</th>
-      <th>Plug Type</th>
-      <th>Max for Cable & Plug</th>
-      <th>Current Fuse</th>
-    </thead>
-    <tbody>
-      <td id="csa-selection-cable-fuse-rating"></td>
-      <td id="plug-selection-cable-fuse-rating"></td>
-      <td id="cable-fuse-rating"></td>
-      <td id="fuse-selection-cable-fuse-rating"></td>
-    </tbody>
-  </table>
-
-  <h2>Protective Earth (PE) Resistance Test</h2>
-  <table id="protective-earth-resistance-results">
-    <thead>
-      <th>CSA Resistance</th>
-      <th>Cable Length</th>
-      <th>Cable Resistance</th>
-      <th>PE Max Resistance</th>
-    </thead>
-    <tbody>
-      <td id="csa-resistance"></td>
-      <td id="cable-length-selction-protective-earth-resistance"></td>
-      <td id="cable-resistance"></td>
-      <td id="max-resistance" class="highlight"></td>
-    </tbody>
-  </table>
+  <section class="results-table-section">
+    <h2>Protective Earth (PE) Resistance Test</h2>
+    <table id="protective-earth-resistance-results">
+      <thead>
+        <th>CSA Resistance</th>
+        <th>Cable Length</th>
+        <th>Cable Resistance</th>
+        <th>PE Max Resistance</th>
+      </thead>
+      <tbody>
+        <td id="csa-resistance"></td>
+        <td id="cable-length-selction-protective-earth-resistance"></td>
+        <td id="cable-resistance"></td>
+        <td id="max-resistance" class="highlight"></td>
+      </tbody>
+    </table>
+  </section>
 
   <form id="calculator-form" method="get", action="./">
     <button type="submit" id="calculator-form-submit">Re-Input Data</button>

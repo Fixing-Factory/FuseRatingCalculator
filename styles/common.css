@@ -1,0 +1,22 @@
+:root {
+  --primary-bg-colour: rgb(239, 120, 0);
+  --secondary-bg-colour: hsla(326.13, 70.45%, 17.25% , 1);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../static/fonts/Poppins-Medium.ttf);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  background-color: var(--primary-bg-colour);
+  display: block;
+  margin: 3vw;
+}
+
+#homepage-logo {
+  width: 10vw;
+  height: auto;
+}
