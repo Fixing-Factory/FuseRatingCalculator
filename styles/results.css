@@ -28,8 +28,8 @@ td, th {
   text-align: center;
   padding-left: 0.5vw;
   padding-right: 0.5vw;
-  padding-top: 0.25vw;
-  padding-bottom: 0.25vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
   font-weight: 500;
   font-size: 0.9rem;
 }
@@ -41,8 +41,8 @@ td, th {
 }
 
 button {
-  margin-top: 4vh;
-  margin-bottom: 4vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
   padding: 2vh;
   display: block;
   font-family: "Poppins", sans-serif;

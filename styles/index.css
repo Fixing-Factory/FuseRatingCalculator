@@ -2,6 +2,10 @@ h1, h2 {
   font-weight: 500;
 }
 
+h1 {
+  font-size: 1.7rem;
+}
+
 .form-input-box {
   padding-bottom: 1vh;
 }
