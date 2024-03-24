@@ -45,8 +45,8 @@ body {
   background-color: var(--secondary-bg-colour);
   color: white;
   left: 0;
-  top: 15vh;
+  top: 14vh;
   width: 96vw;
-  height: 80vh;
+  height: 76vh;
   margin: 2vh 2vw;
 }
