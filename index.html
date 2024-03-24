@@ -9,12 +9,32 @@
   <script src="./scripts/index.js" type="module" defer></script>
   <link rel="stylesheet" href="./styles/common.css">
   <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
-  <a href="https://www.fixingfactory.org/">
-    <img src="./static/images/fixingfactorylogo.png" alt="Fixing Factory Homepage" id="homepage-logo">
-  </a>
+  <div id="top-line">
+    <div id="logo-container">
+      <a href="https://www.fixingfactory.org/">
+        <img src="./static/images/fixingfactorylogo.png" alt="Fixing Factory Homepage" id="homepage-logo">
+      </a>
+    </div>
+    <div id="info-container">
+      <span class="material-symbols-outlined" id="info-icon">
+        info
+      </span>
+    </div>
+  </div>
+
+
+  <dialog id="advisory-dialog">
+    <p>
+      Advice given here loosely follows the IET Code of Practice for In-service Inspection and Testing of Electrical Equipment (5th Edition).
+      <br> <br> 
+      Fixing Factory assumes no liability for the use of this calculator.
+    </p>
+  </dialog>
+
   <h1>
     Fuse Rating Calculator
   </h1>
@@ -80,6 +100,8 @@
 
     <button type="submit" id="calculator-form-submit">Calculate!</button>
   </form>
+
+
 </body>
 
 </html>
