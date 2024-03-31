@@ -28,10 +28,26 @@
 
 
   <dialog id="advisory-dialog">
-    <p>
-      Advice given here loosely follows the IET Code of Practice for In-service Inspection and Testing of Electrical Equipment (5th Edition).
+    <nav id="dialog-nav">
+      <button id="close-dialog">Close</button>
+      <button id="page-forward">More Info</button>
+      <button id="page-back" class="disabled">Previous Info</button>
+    </nav>
+    <p id="dialog-page-1" class="dialog-paragraph">
+      Advice given here is based on information and guidance provided in <a href="https://shop.theiet.org/code-of-practice-for-in-service-inspection-and-testing-of-electrical-equipment-5th-edition">the IET Code of Practice</a>.
       <br> <br> 
       Fixing Factory assumes no liability for the use of this calculator.
+      <br> <br>
+      Source code for this calculator <a href="https://github.com/Fixing-Factory/FuseRatingCalculator">can be found here</a>.
+    </p>
+    <p id="dialog-page-2" class="dialog-paragraph disabled">
+      Older equipment might not comply with these recommendations.  
+      <br> <br>
+      Formerly a 3 amp fuse was recommended for cables with CSA of 0.5 mm² and a 13 amp fuse in larger cables.
+      <br>
+      (There was an exception, as now, for equipment with a cable of CSA 0.5 mm² and high inrush current, where a 5 amp fuse was permitted.)  
+      <br> <br>
+      It is not necessary to alter fusing that complied with recommendations at the time of manufacture.
     </p>
   </dialog>
 

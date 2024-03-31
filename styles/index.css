@@ -44,5 +44,25 @@ input[type="number"] {
 }
 
 .disabled {
-  display: none;
+  display: none !important;
+}
+
+#advisory-dialog {
+  position: absolute;
+  box-sizing: border-box;
+  background-color: var(--secondary-bg-colour);
+  color: white;
+  left: 0;
+  top: 13vh;
+  width: 96vw;
+  height: 76vh;
+  margin: 2vw 2vw;
+}
+
+.dialog-paragraph a {
+  color: var(--primary-bg-colour);
+}
+
+#dialog-nav button{
+  display: inline;
 }
