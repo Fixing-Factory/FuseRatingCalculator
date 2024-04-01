@@ -14,14 +14,20 @@ label {
   display: inline;
 }
 
+form {
+  font-size: 1.2rem;
+}
+
 input {
   display: block;
   font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
 }
 
 select {
   display: block;
   font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
 }
 
 button {
@@ -47,16 +53,20 @@ input[type="number"] {
   display: none !important;
 }
 
-#advisory-dialog {
+#advisory-dialog-container {
   position: absolute;
   box-sizing: border-box;
-  background-color: var(--secondary-bg-colour);
-  color: white;
-  left: 0;
-  top: 13vh;
   width: 96vw;
-  height: 76vh;
+}
+
+#advisory-dialog {
+  top: 13vh;
   margin: 2vw 2vw;
+  left: 0;
+  height: 76vh;
+  color: white;
+  background-color: var(--secondary-bg-colour);
+
 }
 
 .dialog-paragraph a {
