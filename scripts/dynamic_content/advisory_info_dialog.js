@@ -19,11 +19,25 @@ export class AdvisoryInfoDialogManager {
   }
 
   onInfoButtonClick() {
-    this.advisoryDialog.showModal()
+    this.advisoryDialog.show()
   }
 
   onCloseButtonClick() {
     this.advisoryDialog.close()
+
+    this.restoreOriginalDialogState()
+  }
+
+  restoreOriginalDialogState() {
+    let currentParagraph = document.getElementById(`dialog-page-${this.currentPage}`)
+    currentParagraph.classList.add("disabled")
+    
+    this.currentPage = 1
+    currentParagraph = document.getElementById(`dialog-page-${this.currentPage}`)
+    currentParagraph.classList.remove("disabled")
+
+    this.pageForward.classList.remove("disabled")
+    this.pageBack.classList.add("disabled")
   }
 
   onPageForwardClick() {

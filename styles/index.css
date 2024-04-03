@@ -53,20 +53,16 @@ input[type="number"] {
   display: none !important;
 }
 
-#advisory-dialog-container {
+#advisory-dialog {
   position: absolute;
   box-sizing: border-box;
   width: 96vw;
-}
-
-#advisory-dialog {
   top: 13vh;
   margin: 2vw 2vw;
   left: 0;
   height: 72vh;
   color: white;
   background-color: var(--secondary-bg-colour);
-
 }
 
 .dialog-paragraph a {
