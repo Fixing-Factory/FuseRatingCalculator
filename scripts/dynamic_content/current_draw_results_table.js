@@ -8,13 +8,13 @@ export class CurrentDrawResultsTableManager {
     this.minimumFuseCurrentDraw = document.getElementById('minimum-fuse-current-draw')
   }
 
-  populateTable(currentDraw, fuseSelection) {
+  populateTable(currentDraw, fuseSelection, targetFuseExemption) {
     const roundedCurrentDrawString = roundToDecimalPlaces(currentDraw, 2)
     this.currentDraw.innerHTML = `${roundedCurrentDrawString}A`
     this.fuseSelection.innerHTML = `${fuseSelection}A`
-    this.minimumFuseCurrentDraw.innerHTML = this.pickMinViableFuse(currentDraw)
+    this.minimumFuseCurrentDraw.innerHTML = targetFuseExemption || this.pickMinViableFuse(currentDraw)
 
-    if (currentDraw > fuseSelection) {
+    if ((currentDraw > fuseSelection) && !targetFuseExemption) {
       this.minimumFuseCurrentDraw.classList.add("highlight")
       this.fuseSelection.classList.add("highlight")
       this.fuseSelection.innerHTML += "!!!"

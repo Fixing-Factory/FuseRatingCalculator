@@ -5,6 +5,7 @@ import { InputResultsTableManager } from "./dynamic_content/input_results_table.
 import { CurrentDrawResultsTableManager } from "./dynamic_content/current_draw_results_table.js";
 import { CableFuseRatingResultsTableManager } from "./dynamic_content/cable_fuse_rating_results_table.js";
 import { ProtectiveEarthResistanceTableManager } from "./dynamic_content/protective_earth_resistance_results_table.js";
+import { currentDrawExceptions as targetFuseExceptions } from "./data_tables/target_fuse_exception.js";
 
 function calculatorProcessData() {
   const queryParams = new URLSearchParams(window.location.search);
@@ -17,14 +18,15 @@ function calculatorProcessData() {
   const fuse = parseInt(queryParams.get('fuse'))
   const plugType = queryParams.get('plug-type')
   const cableLength = parseFloat(queryParams.get('cable-length'))
-
+  
   const inputResultsManager = new InputResultsTableManager()
   inputResultsManager.populateTable(power, voltage, csa, inrush, fuse, plugType, cableLength)
   
   const currentDraw = calculateDeviceCurrentDraw(power, voltage)
   const currentDrawResultsContentManager = new CurrentDrawResultsTableManager()
-  currentDrawResultsContentManager.populateTable(currentDraw, fuse)
-
+  const targetFuseException = targetFuseExceptions[`${power}W:${voltage}V`]
+  currentDrawResultsContentManager.populateTable(currentDraw, fuse, targetFuseException)
+  
   const fuseRatingOfCable = calculateFuseRating(csa, plugType, inrush, cableLength)
   const cableFuseRatingResultsTableManager = new CableFuseRatingResultsTableManager()
   cableFuseRatingResultsTableManager.populateTable(csa, inrush, plugType, fuseRatingOfCable, fuse)
